@@ -1,13 +1,13 @@
 Brs::Application.routes.draw do
-  
   root to:  'static_pages#home'
-  
-  resources :users do
-  
-  #match '/signup',  to: 'users#new',            via: 'get'
-  #match '/signin',  to: 'sessions#new',         via: 'get'
+  resources :sessions, only: [:new, :create, :destroy]
+ resources :users
+  get "users/new"
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/signin',  to: 'sessions#new',         via: 'get'
   #match '/signout', to: 'sessions#destroy',     via: 'delete'
-  end
+  
   
   namespace :admin do
   end
