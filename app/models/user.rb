@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :following_users, through: :relationships, source: :following
+  has_many :reverse_relationships, foreign_key: "following_id",
+                                   class_name:  "Relationship",
+                                   dependent:   :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+  
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :username, presence: true, length: { maximum: 50 }
@@ -15,6 +22,18 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def following?(other_user)
+    relationships.find_by(following_id: other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(following_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by(following_id: other_user.id).destroy!
   end
 
   private
