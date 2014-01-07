@@ -8,18 +8,17 @@ Brs::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signin',  to: 'sessions#new',         via: 'get'
   #match '/signout', to: 'sessions#destroy',     via: 'delete'
-<<<<<<< HEAD
 
   resources :books
 
-=======
   resources :users do
     member do
       get :following, :followers
     end
   end
-  
->>>>>>> follow/unfollow
+
+  resources :searchs
+
   namespace :admin do
     resources :books
   end

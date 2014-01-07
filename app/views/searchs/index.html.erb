@@ -1,0 +1,18 @@
+<% provide(:title, "Search book") %>
+<h1>Search Book</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_tag new_search_path, method: "get" do %>
+
+      <%= label_tag :title %>
+      <%= text_field_tag :title, params[:title] %>
+
+      <%= label_tag "Category" %>
+      <% categories_array = Category.all.map { |category| [category.name, category.id] } %>
+      <%= select_tag "category_id", options_for_select(categories_array) %>
+
+      <%= submit_tag "Search", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
