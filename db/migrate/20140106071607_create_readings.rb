@@ -3,7 +3,6 @@ class CreateReadings < ActiveRecord::Migration
     create_table :readings do |t|
     	t.integer :book_id
     	t.integer :user_id
-    	t.integer :activity_id
       t.timestamps
     end
   end
