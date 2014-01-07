@@ -9,6 +9,14 @@
   <%= f.collection_select(:category_id, categories, :id, :name) %>
 </div>
 <div class="field">
+	<%= f.label "Number page" %>
+  <%= f.number_field :num_page %>
+</div>
+<div class="field">
+	<%= f.label :price %>
+  <%= f.number_field :price %>
+</div>
+<div class="field">
 	<%= f.label :author %>
   <%= f.text_field :author %>
 </div>
