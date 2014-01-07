@@ -1,6 +1,6 @@
-class CreateReadings < ActiveRecord::Migration
+class CreateFavourites < ActiveRecord::Migration
   def change
-    create_table :readings do |t|
+    create_table :favourites do |t|
     	t.integer :book_id
     	t.integer :user_id
     	t.integer :activity_id

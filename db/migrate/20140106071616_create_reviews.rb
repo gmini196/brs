@@ -5,8 +5,8 @@ class CreateReviews < ActiveRecord::Migration
     	t.integer :book_id
     	t.integer :user_id
     	t.integer :activity_id
-      t.string :title_review
-    	t.string :content_review
+      t.string :review_title
+    	t.string :review_content
       t.timestamps
     end
   end
