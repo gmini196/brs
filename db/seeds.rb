@@ -59,10 +59,12 @@ Favourite.create(book_id: 3, user_id: 1, activity_id: 3)
 Read.create(book_id: 3, user_id: 2, activity_id: 4)
 
 Review.create(book_id: 3, user_id: 2, activity_id: 5, review_title: "This book is greate", content_review: "This is the must read book for every programmer")
+Read.create(book_id: 3, user_id: 3, activity_id: 6)
+Read.create(book_id: 1, user_id: 3, activity_id: 7)
 
-Rate.create(book_id: 1, user_id: 3, activity_id: 6, rate: 4)
+Rate.create(book_id: 1, user_id: 3, rate: 4)
 
-Reading.create(book_id: 2, user_id: 3, activity_id: 7)
+Reading.create(book_id: 2, user_id: 3)
 
 Comment.create(review_id: 1, user_id: 2, activity_id: 8, content: "You're right'")
 
