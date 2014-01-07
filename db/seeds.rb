@@ -34,9 +34,9 @@ Category.create(name: "Infomation Technology")
 Category.create(name: "Computer Science")
 Category.create(name: "Version Control")
 
-Book.create(id_cate: 1, title: "Ruby on Rails tutorial", num_page: 300, author: "David", publish_date: "2012-6-6", price: 4)
-Book.create(id_cate: 4, title: "Git Immersion", num_page: 234, author: "Brooke", publish_date: "2011-7-8", price: 2)
-Book.create(id_cate: 2, title: "Learning MySQL", num_page: 400, author: "Richard", publish_date: "2010-9-2", price: 5)
+Book.create(category_id: 1, title: "Ruby on Rails tutorial", num_page: 300, author: "David", publish_date: "2012-6-6", price: 4)
+Book.create(category_id: 4, title: "Git Immersion", num_page: 234, author: "Brooke", publish_date: "2011-7-8", price: 2)
+Book.create(category_id: 2, title: "Learning MySQL", num_page: 400, author: "Richard", publish_date: "2010-9-2", price: 5)
 
 Buy.create(book_id: 1, user_id: 1, buy_status: 0, approve_buy_date: "2014-6-1")
 Buy.create(book_id: 1, user_id: 2, buy_status: 1, approve_buy_date: "2014-6-1")
