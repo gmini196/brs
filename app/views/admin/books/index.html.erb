@@ -1,6 +1,7 @@
 <% provide(:title, "Show all books") %>
 <h2>Show all books</h2>
-
+<%= link_to "Create new book", new_admin_book_path,
+	                              class: "btn btn-small btn-primary" %>
 <table class="table">
 	<thear>
 		<tr>
