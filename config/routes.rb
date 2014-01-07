@@ -1,15 +1,25 @@
 Brs::Application.routes.draw do
   root to:  'static_pages#home'
   resources :sessions, only: [:new, :create, :destroy]
- resources :users
+  resources :relationships, only: [:create, :destroy]
+  resources :users
   get "users/new"
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signin',  to: 'sessions#new',         via: 'get'
   #match '/signout', to: 'sessions#destroy',     via: 'delete'
+<<<<<<< HEAD
 
   resources :books
 
+=======
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
+>>>>>>> follow/unfollow
   namespace :admin do
     resources :books
   end
