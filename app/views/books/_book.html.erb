@@ -1,0 +1,14 @@
+<tr>
+		<td class="listbox-entry">
+			<%= link_to book.title, book %>
+		</td>
+		<td class="listbox-entry" align="center">
+		  <%= book.author %>
+		</td>
+		<td class="listbox-entry" align="center">
+		  <%= book.publish_date.strftime("%Y-%m-%d") %>
+		</td>
+		<td class="listbox-header" align="center">
+		  <%= book.price %>
+		</td>
+</tr>

@@ -7,8 +7,9 @@ Brs::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signin',  to: 'sessions#new',         via: 'get'
   #match '/signout', to: 'sessions#destroy',     via: 'delete'
-  
-  
+
+  resources :books
+
   namespace :admin do
   end
   # The priority is based upon order of creation: first created -> highest priority.
@@ -51,7 +52,7 @@ Brs::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
