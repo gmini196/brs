@@ -1,0 +1,24 @@
+<% provide(:title, "Show all books") %>
+<h2>Show all books</h2>
+
+<table class="table">
+	<thear>
+		<tr>
+			<th>STT</th>
+			<th>Title books</th>
+			<th>Rating</th>
+			<th>Publish date</th>
+			<th>Category</th>
+			<th>Favourites</th>
+			<th>Delete</th>
+		</tr>
+  </thear>
+	<tbody>
+		<% if @books.any? %>
+		<%= render @books %>
+		<% end %>
+	</tbody>
+	<tfoot>
+    <%= will_paginate %>
+	</tfoot>
+</table>
