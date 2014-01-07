@@ -1,0 +1,14 @@
+<% provide(:title, 'Edit book') %>
+<h1>Update book</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, @book] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+			<%= render 'fields', f: f, categories: @categories%>
+
+      <%= f.submit "Update book", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
