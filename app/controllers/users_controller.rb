@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user,
-                only: [:index, :edit, :update, :destroy, :following, :followers]
+                only: [:destroy, :following, :followers]
 
   def new
     @user = User.new
