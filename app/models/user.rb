@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :readings
   has_many :reads
+  has_many :favourites
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
