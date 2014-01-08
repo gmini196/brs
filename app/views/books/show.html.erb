@@ -6,10 +6,27 @@
     <li>has <%= @book.num_page %> divages</li>
     <li>Price: <%= @book.price %></li>
     <li>Category: <%= @book.category.name %></li>
-    <li><%= link_to "Rate", "#", class: "btn btn-small btn-primary"%></li>
     <%= render 'favourite_form', book: @book if signed_in? %>
     <%= render 'read_form', book: @book if signed_in? %>
     <%= render 'reading_form', book: @book if signed_in? %>
+    <% if @rate.nil? %>
+      <% @rate = @book.rates.build(rate: 3) %>
+      <%= render "rate_form" %>
+    <% else %>
+      <div>
+        You rate this book: <%= @rate.rate %> stars
+        <div>
+         <div id="edit_rate">
+         <%= link_to "Edit", "#", class: "btn btn-small btn-primary", id: "btn_edit"%>
+         </div>
+         <div>
+            <%= link_to "Delete", book_rate_path(@book.id, @rate.id),
+             method: :delete, data: { confirm: "You sure?" },
+                                       class: "btn btn-small btn-primary"%>
+         </div>
+        </div>
+      </div>
+    <% end %>
     <li><%= link_to "Request buy", "#", class: "btn btn-small btn-primary" %></li>
     <li><%= link_to "Review", "#", class: "btn btn-small btn-primary" %></li>
   </ul>
@@ -19,3 +36,10 @@
   <ol><%= render @reviews %></ol>
 </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#btn_edit').click(function(){
+      $("#edit_rate").html("<%= escape_javascript(render('books/rate_form')) %>");
+    })
+  })
+</script>
