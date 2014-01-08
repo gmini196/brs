@@ -1,0 +1,9 @@
+<% unless current_user?(@user) %>
+  <div id="reading_form">
+  <% unless current_user.reading?(@book, current_user) %>
+    <%= render 'reading', book: @book %>
+  <% else %>
+    <%= render 'reading_marked' %>
+  <% end %>
+  </div>
+<% end %>
