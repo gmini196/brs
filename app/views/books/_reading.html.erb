@@ -1,0 +1,8 @@
+<li>
+<%= form_for(Reading.new(user_id: current_user.id, 
+	           book_id: book.id), remote: true) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :book_id %>
+  <%= f.submit "Mask as Reading", class: "btn btn-small btn-primary" %>
+<% end %>
+</li>

@@ -7,5 +7,5 @@ class BooksController < ApplicationController
     @book = Book.find params[:id]
     @reviews = @book.reviews.paginate page: params[:page], per_page: 8
   end
-
+  
 end

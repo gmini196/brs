@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     relationships.find_by(following_id: other_user.id)
   end
 
+  def reading?(book, user)
+    readings.find_by book_id: book.id, user_id: user.id
+  end
+
   def follow!(other_user)
     relationships.create!(following_id: other_user.id)
   end
