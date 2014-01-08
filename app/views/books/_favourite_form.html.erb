@@ -1,0 +1,9 @@
+<% unless current_user?(@user) %>
+  <div id="favourite_form">
+  <% unless current_user.favourite?(@book, current_user) %>
+    <%= render 'favourite', book: @book %>
+  <% else %>
+    <%= render 'favourite_marked' %>
+  <% end %>
+  </div>
+<% end %>
