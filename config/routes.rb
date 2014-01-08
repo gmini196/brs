@@ -17,6 +17,7 @@ Brs::Application.routes.draw do
     end
   end
   resources :readings, only: [:index, :create]
+  resources :reads, only: [:create]
   resources :searchs
 
   namespace :admin do
