@@ -7,7 +7,7 @@
     <li>Price: <%= @book.price %></li>
     <li>Category: <%= @book.category.name %></li>
     <li><%= link_to "Rate", "#", class: "btn btn-small btn-primary"%></li>
-    <li><%= link_to "Mark as read", "#", class: "btn btn-small btn-primary" %></li>
+    <%= render 'read_form', book: @book if signed_in? %>
     <%= render 'reading_form', book: @book if signed_in? %>
     <li><%= link_to "Request buy", "#", class: "btn btn-small btn-primary" %></li>
     <li><%= link_to "Review", "#", class: "btn btn-small btn-primary" %></li>

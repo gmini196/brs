@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :readings
+  has_many :reads
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -31,6 +32,14 @@ class User < ActiveRecord::Base
 
   def reading?(book, user)
     readings.find_by book_id: book.id, user_id: user.id
+  end
+
+  def read?(book, user)
+    reads.find_by book_id: book.id, user_id: user.id
+  end
+
+  def favourite?(book, user)
+    favourites.find_by book_id: book.id, user_id: user.id
   end
 
   def follow!(other_user)
