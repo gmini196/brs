@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :readings
   has_many :reads
   has_many :favourites
+  has_many :rates
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -18,7 +19,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
-  
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

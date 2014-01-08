@@ -9,7 +9,9 @@ Brs::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   #match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  resources :books
+  resources :books do
+    resources :rates, only: [:create, :destroy, :update, :edit]
+  end
 
   resources :users do
     member do

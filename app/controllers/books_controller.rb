@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find params[:id]
     @reviews = @book.reviews.paginate page: params[:page], per_page: 8
+    @rate = current_user.rates.rate_number(@book.id).first
   end
   
 end
