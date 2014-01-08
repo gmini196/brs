@@ -16,7 +16,7 @@ Brs::Application.routes.draw do
       get :following, :followers
     end
   end
-
+  resources :readings, only: [:index, :create]
   resources :searchs
 
   namespace :admin do
