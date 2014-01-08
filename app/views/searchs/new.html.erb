@@ -1,0 +1,21 @@
+<% provide(:title, 'Result Books') %>
+<h1>Result Books</h1>
+
+<% if @books.any? %>
+<table cellpadding="2" cellspacing="0" width="100%">
+  <tr>
+		<td class="listbox-header" align="center">
+			Title
+		</td>
+		<td class="listbox-header" align="center">Author</td>
+		<td class="listbox-header" align="center">Publish at</td>
+		<td class="listbox-header" align="center">Price</td>
+		<td class="listbox-header" align="center">Category</td>
+	</tr>
+
+	<%= render @books %>
+	<%= will_paginate @books %>
+</table>
+<% else %>
+  <h1>There aren't any book that you looking for</h1>
+<% end %>
