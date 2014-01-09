@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   include UsersHelper
+  before_action :signed_in_admin
 
   def index
     @users = User.paginate page: params[:page], per_page: 2

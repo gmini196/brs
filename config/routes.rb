@@ -2,11 +2,12 @@ Brs::Application.routes.draw do
   root to:  'static_pages#home'
   resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :users
+  #resources :users
   get "users/new"
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signin',  to: 'sessions#new',         via: 'get'
+
   #match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   resources :books do
@@ -26,8 +27,13 @@ Brs::Application.routes.draw do
 
   resources :searchs
 
-  namespace :admin do
+  namespace :admin do 
+    root to: 'books#index'
     resources :books
+    resources :users
+    resources :sessions, only: [:new, :create, :destroy]
+    match 'signout', to: 'sessions#destroy',     via: 'delete'
+    match 'signin',  to: 'sessions#new',         via: 'get'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
