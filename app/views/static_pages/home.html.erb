@@ -8,6 +8,11 @@
         <%= render 'shared/stats' %>
       </section>
     </aside>
+
+    <div class="span8">
+      <h3>Activities</h3>
+      <%= render 'shared/activity', activity_items: @activities %>
+    </div>
   </div>
 <% else %>
 

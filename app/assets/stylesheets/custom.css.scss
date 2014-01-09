@@ -168,7 +168,27 @@ aside {
 }
 
 /* forms */
-
+ul.activities li{
+padding-bottom: 5px;
+border-bottom:1px solid #cecece;
+}
+span.user{
+float:left;
+margin:5px;
+}
+span.content{
+display:block;
+overflow: hidden;
+margin:5px;
+}
+span.content span{
+float:left;
+margin:5px;
+}
+form{
+  margin: 0;
+  float:left;
+}
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;

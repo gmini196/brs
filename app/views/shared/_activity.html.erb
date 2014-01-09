@@ -1,0 +1,6 @@
+<% if activity_items.any? %>
+  <ul class="activities unstyled">
+    <%= render partial: 'shared/activity_item', collection: activity_items %>
+  </ul>
+  <%= will_paginate activity_items %>
+<% end %>

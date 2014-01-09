@@ -11,7 +11,7 @@ Brs::Application.routes.draw do
 
   resources :books do
     resources :rates, only: [:create, :destroy, :update, :edit]
-    resources :favourites, only: [:create]
+    resources :favourites, only: [:index]
     resources :buys, only: [:create, :destroy]
   end
 
@@ -23,8 +23,8 @@ Brs::Application.routes.draw do
   end
   resources :readings, only: [:index, :create]
   resources :reads, only: [:create]
-
   resources :searchs
+  resources :likes, only: [:create, :destroy]
 
   namespace :admin do
     resources :books
