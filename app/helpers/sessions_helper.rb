@@ -35,4 +35,8 @@ module SessionsHelper
     cookies.delete(:remember_token)
     self.current_user = nil
   end
+
+  def has_bought?
+    @book.buys.find_by(user_id: current_user.id,buy_status: 1).nil? && false
+  end
 end

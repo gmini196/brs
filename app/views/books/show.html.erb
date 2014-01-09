@@ -28,7 +28,27 @@
         </div>
       </div>
     <% end %>
-    <li><%= link_to "Request buy", "#", class: "btn btn-small btn-primary" %></li>
+    <li>
+      <% if @buy.nil? %>
+        <% @buy = @book.buys.build() %>
+        <%= form_for([@book ,@buy]) do |f| %>
+          <div class="">
+            <%= f.submit "Request buy", class: "btn btn-small btn-primary" %>
+          </div>
+        <% end %>
+      <% else %>
+        You has request to buy this book
+
+        <% if has_bought? %>
+          <div>Admin has accepted your request</div>
+        <% else %>
+          <div>Peding...</div>
+          <%= link_to "Cancel it", book_buy_path(@book.id, @buy.id),
+             method: :delete, data: { confirm: "You sure?" },
+                                       class: "btn btn-small btn-primary"%>
+        <% end %>
+      <% end %>
+    </li>
     <li><%= link_to "Review", "#", class: "btn btn-small btn-primary" %></li>
   </ul>
 </div>
