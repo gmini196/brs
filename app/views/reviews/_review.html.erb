@@ -1,8 +1,5 @@
 <li>
-  <span>
-    <%= link_to review.review_title %>
-  </span>
-  <span>
-    <%= review.created_at.strftime("%Y-%m-%d %a %H:%M:%S") %>
-  </span>
+	<div> <%= link_to review.review_title %> </div>
+	<span class="content"> <%= review.content_review %></span>
+	<br/> Reviews create at <%= review.created_at.strftime("%Y-%m-%d %a %H:%M:%S") %> 
 </li>

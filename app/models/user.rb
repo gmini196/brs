@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :buys
   has_many :activities
   has_many :likes
-
+  has_many :reviews, dependent: :destroy
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :username, presence: true, length: { maximum: 50 }
