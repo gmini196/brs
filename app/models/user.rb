@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :favourites
   has_many :rates
   has_many :buys
+  has_many :activities
+  has_many :likes
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -51,6 +53,11 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     relationships.find_by(following_id: other_user.id).destroy!
+  end
+
+  def activiting?
+    seft.activities.any? || seft.readings.any? ||
+    seft.likes.any? || seft.rates.any?
   end
 
   private
