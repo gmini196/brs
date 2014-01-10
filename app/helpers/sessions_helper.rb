@@ -81,4 +81,9 @@ module SessionsHelper
   def has_bought?
     @book.buys.find_by(user_id: current_user.id,buy_status: 1).nil? && false
   end
+
+  def user_has_bought? book_id
+    @user.buys.find_by(book_id: book_id,buy_status: 1).nil? && false
+  end
+
 end
