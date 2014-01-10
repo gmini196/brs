@@ -1,0 +1,16 @@
+<div class="row">
+    <aside class="span8">
+<%= form_for [@book, Review.new] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="title">
+    <%= f.text_field :review_title, placeholder: "Compose new title..." %>
+  </div>
+  <div class="content">
+    <%= f.text_area :content_review , placeholder: "Compose new review..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+    </aside>
+</div>    
+
+

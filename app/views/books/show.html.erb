@@ -49,21 +49,13 @@
         <% end %>
       <% end %>
     </li>
-    <li><%= link_to "Review", "#", class: "btn btn-small btn-primary" %></li>
+    <li><%= link_to "Review", new_book_review_path(@book.id), class: "btn btn-small btn-primary" %></li>
   </ul>
 </div>
-
-
-<div class="span8">
-    <% if @user.reviews.any? %>
-      <h3>Reviews </h3>
-      <ol class="reviews">
-        <%= render @reviews %>
-      </ol>
-      <%= will_paginate @reviews %>
-    <% end %>
-  </div>
-  
+<div class="span9">
+  <h3>Reviews</h3>
+  <ol><%= render @reviews %></ol>
+</div>
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
