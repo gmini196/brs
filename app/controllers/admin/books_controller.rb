@@ -1,5 +1,7 @@
 class Admin::BooksController < ApplicationController
 	include BooksHelper
+  before_action :signed_in_admin
+
 	def index
 			@books = Book.paginate page: params[:page], per_page: 2
 	end
