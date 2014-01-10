@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
 	belongs_to :category
+	belongs_to :user
 	has_many :reviews
 	has_many :buys
 	has_many :favourites

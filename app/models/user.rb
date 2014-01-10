@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :book
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :following_users, through: :relationships, source: :following
   has_many :reverse_relationships, foreign_key: "following_id",
@@ -12,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :buys
   has_many :activities
   has_many :likes
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :username, presence: true, length: { maximum: 50 }
