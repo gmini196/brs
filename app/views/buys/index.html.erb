@@ -1,0 +1,20 @@
+<% provide(:title, 'List book request') %>
+<h1>List book request of <%=@user.username%></h1>
+
+
+<table class="table" cellpadding="2" cellspacing="0" width="100%">
+  <tr>
+		<th class="listbox-header" align="center">
+			Title
+		</th>
+		<th class="listbox-header" align="center">Author</th>
+		<th class="listbox-header" align="center">Publish at</th>
+		<th class="listbox-header" align="center">Price</th>
+		<th class="listbox-header" align="center">Category</th>
+		<th class="listbox-header" align="center">Date</th>
+	</tr>
+
+	<%= render @buys %>
+</table>
+
+<%= will_paginate %>

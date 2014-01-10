@@ -18,6 +18,7 @@ Brs::Application.routes.draw do
 
   resources :users do
     resources :favourites, only: [:index]
+    resources :buys, only: [:index]
     member do
       get :following, :followers
     end
@@ -27,7 +28,7 @@ Brs::Application.routes.draw do
   resources :searchs
   resources :likes, only: [:create, :destroy]
 
-  namespace :admin do 
+  namespace :admin do
     root to: 'books#index'
     resources :books
     resources :users

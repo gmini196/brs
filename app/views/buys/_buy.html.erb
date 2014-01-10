@@ -1,0 +1,28 @@
+<tr>
+		<td class="listbox-entry">
+			<%= link_to buy.book.title, buy.book %>
+		</td>
+		<td class="listbox-entry" align="center">
+		  <%= buy.book.author %>
+		</td>
+		<td class="listbox-entry" align="center">
+		  <%= buy.book.publish_date.strftime("%Y-%m-%d") %>
+		</td>
+		<td class="listbox-header" align="center">
+		  <%= buy.book.price %>
+		</td>
+		<td class="listbox-header" align="center">
+		  <%= buy.book.category.name %>
+		</td>
+		<td class="listbox-header" align="center">
+		  <%= buy.created_at.strftime("%Y-%m-%d") %>
+		</td>
+		<td>
+		  You has request to buy this book
+		  <% if user_has_bought? buy.book.id %>
+		    <div>Admin has accepted your request</div>
+		  <% else %>
+		    <div>Peding...</div>
+		  <% end %>
+		</td>
+</tr>
