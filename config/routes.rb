@@ -12,7 +12,7 @@ Brs::Application.routes.draw do
 
   resources :books do
     resources :rates, only: [:create, :destroy, :update, :edit]
-    resources :favourites, only: [:index]
+    resources :favourites, only: [:create]
     resources :buys, only: [:create, :destroy]
   end
 
