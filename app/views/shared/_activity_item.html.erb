@@ -1,0 +1,35 @@
+<li id="<%= activity_item.id %>">
+  <span class="user">
+    <%= link_to activity_item.user.username, activity_item.user %>
+  </span>
+  <span class="content">
+
+  <%
+  case
+  when !activity_item.read.nil?
+    content = " has read " << activity_item.read.book.title
+  when !activity_item.favourite.nil?
+    content = " has favourited " << activity_item.favourite.book.title
+  when !activity_item.review.nil?
+    content = " has review \"" << activity_item.review.review_title
+    content << "\" for "<< activity_item.review.book.title
+  when !activity_item.comment.nil?
+    content = " has commented \"" << activity_item.comment.content
+    content << "\" for review: " << activity_item.comment.review.review_title
+  when !activity_item.relationship.nil?
+    content = " has followed " << activity_item.relationship.following.username
+  else
+    content = "error!!"
+  end
+  %>
+  <span><%= content %></span>
+  <span id="like_form_<%=activity_item.id%>">
+  <% if activity_item.liked? current_user %>
+    <%= render "unlike_form",  activity: activity_item %>
+
+  <% else %>
+    <%= render "like_form",  activity: activity_item %>
+  <% end %>
+  </span>
+  </span>
+</li>

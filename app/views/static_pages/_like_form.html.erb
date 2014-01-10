@@ -1,0 +1,7 @@
+  <%= form_for(Like.new(activity_id: activity.id), remote: true) do |f| %>
+    <div class="">
+      <%= f.hidden_field :activity_id %>
+      <%= f.submit "Like", class: "btn btn-small btn-primary" %>
+    </div>
+  <% end %>
+  <span><%= activity.likes.count %> like</span>
