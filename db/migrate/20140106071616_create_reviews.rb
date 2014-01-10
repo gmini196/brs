@@ -8,5 +8,6 @@ class CreateReviews < ActiveRecord::Migration
     	t.string :content_review
       t.timestamps
     end
+    add_index :reviews, [:user_id, :created_at]
   end
 end
